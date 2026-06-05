@@ -33,7 +33,7 @@
         <h2>Consent &amp; Permission Management</h2>
       </div>
       <p class="consent-text">
-        <span class="client" id="clientName">—</span> is requesting permission to manage a health insurance application on your behalf for coverage year <span class="year" id="coverageYear">—</span>. By granting this permission, you authorize HealthSherpa to modify and save changes to your existing application, including personal, household and income information updates.
+        <span class="client">Health Sherpa</span> is requesting permission to manage a health insurance application on your behalf for coverage year <span class="year" id="coverageYear">—</span>. By granting this permission, you authorize HealthSherpa to modify and save changes to your existing application, including personal, household and income information updates.
       </p>
     </div>
 
@@ -99,54 +99,32 @@
 
   </div>
 
-  <!-- Modal -->
-  <div class="modal-overlay" id="modal">
-    <div class="modal-box">
-      <div class="modal-icon" id="modalIcon">
-        <svg id="modalIconSvg" viewBox="0 0 24 24"></svg>
-      </div>
-      <h2 id="modalTitle"></h2>
-      <p id="modalMessage"></p>
-      <button class="modal-close" onclick="closeModal()">Close</button>
-    </div>
-  </div>
-
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const name = params.get('n') || 'Unknown';
     const today = new Date();
     const coverageYear = today.getFullYear() + 1;
     const dateStr = today.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
 
-    document.getElementById('clientName').textContent = name;
     document.getElementById('coverageYear').textContent = coverageYear;
     document.getElementById('coverageYearDetail').textContent = coverageYear;
     document.getElementById('requestDate').textContent = dateStr;
 
     function handleAction(type) {
-      const modal = document.getElementById('modal');
-      const icon = document.getElementById('modalIcon');
-      const svg = document.getElementById('modalIconSvg');
-      const title = document.getElementById('modalTitle');
-      const msg = document.getElementById('modalMessage');
-
-      if (type === 'approve') {
-        icon.className = 'modal-icon approve';
-        svg.innerHTML = '<path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>';
-        title.textContent = 'Permission Approved';
-        msg.textContent = 'You have successfully granted permission to update your health insurance application. HealthSherpa can now proceed on your behalf.';
-      } else {
-        icon.className = 'modal-icon deny';
-        svg.innerHTML = '<path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/>';
-        title.textContent = 'Permission Denied';
-        msg.textContent = 'You have denied the permission request for application update. No changes will be made to your account.';
-      }
-
-      modal.classList.add('show');
-    }
-
-    function closeModal() {
-      document.getElementById('modal').classList.remove('show');
+      const isApprove = type === 'approve';
+      document.body.innerHTML = `
+        <div style="min-height:100vh;display:flex;align-items:center;justify-content:center;background:#f0f4ff;font-family:inherit;">
+          <div style="background:#fff;border-radius:12px;padding:48px 40px;max-width:480px;width:100%;text-align:center;box-shadow:0 4px 24px rgba(0,0,0,0.08);">
+            <div style="width:64px;height:64px;border-radius:50%;background:${isApprove ? '#e8f5e9' : '#fdecea'};display:flex;align-items:center;justify-content:center;margin:0 auto 24px;">
+              <svg viewBox="0 0 24 24" style="width:32px;height:32px;fill:${isApprove ? '#2e7d32' : '#c62828'}">
+                ${isApprove
+                  ? '<path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>'
+                  : '<path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/>'}
+              </svg>
+            </div>
+            <h2 style="margin:0 0 12px;color:#1a1a2e;font-size:1.5rem;">Response Recorded</h2>
+            <p style="color:#555;font-size:1rem;line-height:1.6;margin:0;">Your response has been recorded. You may close this window.</p>
+          </div>
+        </div>
+      `;
     }
   </script>
 

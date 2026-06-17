@@ -4,6 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Permission Request for Insurance Plan Enrollment</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0"
+    rel="stylesheet"
+  />
   <link rel="stylesheet" href="../styles.css" />
 </head>
 <body>
@@ -122,15 +132,15 @@
 
     function handleAction(type) {
       document.body.innerHTML = `
-        <div style="min-height:100vh;display:flex;align-items:center;justify-content:center;background:#f0f4ff;font-family:inherit;">
-          <div style="background:#fff;border-radius:12px;padding:48px 40px;max-width:480px;width:100%;text-align:center;box-shadow:0 4px 24px rgba(0,0,0,0.08);">
-            <div style="width:64px;height:64px;border-radius:50%;background:#e8f5e9;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;">
-              <svg viewBox="0 0 24 24" style="width:32px;height:32px;fill:#2e7d32">
+        <div style="min-height:100vh;display:flex;align-items:center;justify-content:center;background:#faf7f5;font-family:inherit;padding:24px;">
+          <div style="background:#fff;border-radius:22px;padding:48px 40px;max-width:480px;width:100%;text-align:center;box-shadow:0 12px 32px rgba(126,20,20,0.10);border:1px solid #e6e6e6;">
+            <div style="width:72px;height:72px;border-radius:50%;background:#f6dcd2;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;">
+              <svg viewBox="0 0 24 24" style="width:34px;height:34px;fill:#7e1414">
                 <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
               </svg>
             </div>
-            <h2 style="margin:0 0 12px;color:#1a1a2e;font-size:1.5rem;">Response Recorded</h2>
-            <p style="color:#555;font-size:1rem;line-height:1.6;margin:0;">Your response has been recorded. You may close this window.</p>
+            <h2 style="margin:0 0 12px;color:#1a1a1a;font-size:1.5rem;font-weight:800;letter-spacing:-0.01em;">Response Recorded</h2>
+            <p style="color:#4a4a4a;font-size:1rem;line-height:1.65;margin:0;">Your response has been recorded. You may close this window.</p>
           </div>
         </div>
       `;

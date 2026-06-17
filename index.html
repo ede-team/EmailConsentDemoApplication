@@ -4,9 +4,62 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>EDE Consent Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0"
+    rel="stylesheet"
+  />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body class="index-page">
-  <h1 class="index-title">EDE CONSENT DEMO</h1>
+  <main class="index-hero">
+    <span class="index-eyebrow">EDE Email Consent</span>
+    <h1 class="index-title">Covered Oklahoma <span class="index-accent">Consent Demo</span></h1>
+    <p class="index-sub">
+      Preview the three permission experiences used to authorize a web broker
+      to create, update, or enroll a health insurance application on a
+      consumer&rsquo;s behalf.
+    </p>
+    <nav class="index-grid" aria-label="Consent screens">
+      <a href="create/" class="index-card">
+        <span class="index-card__icon" aria-hidden="true">
+          <span class="material-symbols-rounded">add_circle</span>
+        </span>
+        <span class="index-card__title">Create Application</span>
+        <span class="index-card__desc">Authorize creating a new application.</span>
+        <span class="index-card__cta">
+          Open
+          <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
+        </span>
+      </a>
+      <a href="update/" class="index-card">
+        <span class="index-card__icon" aria-hidden="true">
+          <span class="material-symbols-rounded">edit_document</span>
+        </span>
+        <span class="index-card__title">Update Application</span>
+        <span class="index-card__desc">Authorize changes to an existing application.</span>
+        <span class="index-card__cta">
+          Open
+          <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
+        </span>
+      </a>
+      <a href="enroll/" class="index-card">
+        <span class="index-card__icon" aria-hidden="true">
+          <span class="material-symbols-rounded">verified_user</span>
+        </span>
+        <span class="index-card__title">Enroll in Plan</span>
+        <span class="index-card__desc">Authorize enrollment into a selected plan.</span>
+        <span class="index-card__cta">
+          Open
+          <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
+        </span>
+      </a>
+    </nav>
+  </main>
 </body>
 </html>

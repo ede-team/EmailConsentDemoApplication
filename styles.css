@@ -6,7 +6,7 @@
 
 :root {
   --color-bg: #ffffff;
-  --color-surface: #faf7f5;
+  --color-surface: #ffffff;
   --color-text: #1a1a1a;
   --color-text-soft: #4a4a4a;
   --color-muted: #767676;
@@ -188,18 +188,19 @@ html, body {
    Page header (consent screens)
    ========================================================= */
 .page-header {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-  padding: 28px 32px;
+  background: white;
+  padding: 20px 32px;
   display: flex;
   align-items: center;
   gap: 20px;
   box-shadow: var(--shadow-card);
+   border-radius: var(--radius);
 }
 
 .header-icon-circle {
   width: 56px;
   height: 56px;
-  background: rgba(255, 255, 255, 0.18);
+  background: var(--color-primary);
   border: 1px solid rgba(255, 255, 255, 0.28);
   border-radius: 50%;
   display: flex;
@@ -215,7 +216,7 @@ html, body {
 }
 
 .header-text h1 {
-  color: #fff;
+  color :#1a1a1a;
   font-size: 1.4rem;
   font-weight: 800;
   line-height: 1.25;
@@ -223,7 +224,7 @@ html, body {
 }
 
 .header-text p {
-  color: rgba(255, 255, 255, 0.85);
+  color: #1a1a1a;
   font-size: 0.9375rem;
   margin-top: 4px;
 }
@@ -369,11 +370,11 @@ html, body {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 0.85rem 1.85rem;
+  padding: 0.5rem 2rem;
   font: inherit;
   font-size: 0.95rem;
   font-weight: 700;
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius);
   cursor: pointer;
   border: 2px solid transparent;
   transition: background var(--transition), color var(--transition),
@@ -498,4 +499,225 @@ html, body {
   .card { padding: 22px; }
   .actions { flex-direction: column; }
   .btn-approve, .btn-deny { width: 100%; justify-content: center; }
+}
+
+/* =========================================================
+   Create page screenshot alignment
+   ========================================================= */
+.create-page {
+  background: #eef0f3;
+}
+
+html:has(body.create-page) {
+  background: #eef0f3;
+}
+
+.create-page .container {
+  max-width: none;
+  margin: 0;
+  padding: 32px;
+  gap: 34px;
+}
+
+.create-page .page-header {
+  background: #f6f7f9;
+  border: 1px solid #d4d7dc;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(22, 26, 34, 0.08);
+  padding: 18px 28px;
+}
+
+.create-page .header-icon-circle {
+  width: 62px;
+  height: 62px;
+  background: #eceff3;
+  border: 1px solid #dbe0e7;
+}
+
+.create-page .header-icon-circle svg {
+  fill: #8a0d12;
+}
+
+.create-page .header-text h1 {
+  color: #0f2748;
+}
+
+.create-page .header-text p {
+  margin-top: 2px;
+  color: #51627b;
+}
+
+.create-page .card {
+  border: 1px solid #c7ccd3;
+  background: #f5f6f8;
+  box-shadow: none;
+  border-radius: 14px;
+  padding: 0;
+}
+
+.create-page .card-title {
+  margin: 0;
+  padding: 18px 34px;
+  background: #eceef1;
+  border-bottom: 1px solid #d2d7de;
+}
+
+.create-page .card-title h2 {
+  font-weight: 700;
+  color: #112b4e;
+}
+
+.create-page .card-title svg {
+  width: 30px;
+  height: 30px;
+  fill: #8a0d12;
+}
+
+.create-page .card-content {
+  padding: 32px 34px 34px;
+}
+
+.create-page .consent-text {
+  color: #1f3353;
+  line-height: 1.62;
+}
+
+.create-page .consent-text .client,
+.create-page .consent-text .year {
+  color: #020b1c;
+}
+
+.create-page .two-col {
+  gap: 36px;
+  align-items: stretch;
+}
+
+.create-page .details-grid {
+  margin-top: 0;
+  grid-template-columns: minmax(240px, 1fr) minmax(220px, 1fr);
+  row-gap: 30px;
+  column-gap: 48px;
+}
+
+.create-page .detail-label {
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: #5f7089;
+}
+
+.create-page .detail-value {
+  font-weight: 600;
+  color: #112a4e;
+}
+
+.create-page .notice-box {
+  margin-top: 4px;
+  border: 1px solid #e4bf51;
+  border-left: 1px solid #e4bf51;
+  background: #f7efc9;
+  border-radius: 14px;
+  padding: 24px;
+  gap: 16px;
+}
+
+.create-page .notice-box svg {
+  fill: #ec9f0f;
+  width: 36px;
+  height: 36px;
+  margin-top: 0;
+}
+
+.create-page .notice-box h3 {
+  font-weight: 700;
+  color: #152646;
+  margin-bottom: 6px;
+}
+
+.create-page .notice-box p {
+  color: #132745;
+  line-height: 1.5;
+}
+
+.create-page .actions {
+  gap: 18px;
+}
+
+.create-page .btn-approve,
+.create-page .btn-deny {
+  min-width: 200px;
+  border-radius: 14px;
+}
+
+.create-page .btn-approve {
+  background: #8f090d;
+  border-color: #8f090d;
+}
+
+.create-page .btn-approve:hover {
+  background: #74070a;
+  border-color: #74070a;
+  box-shadow: none;
+}
+
+.create-page .btn-approve svg,
+.create-page .btn-deny svg {
+  width: 24px;
+  height: 24px;
+}
+
+.create-page .btn-approve svg {
+  background: #fff;
+  border-radius: 50%;
+  fill: #8f090d;
+  padding: 2px;
+}
+
+.create-page .btn-deny {
+  background: #f5f6f8;
+  border-color: #e12727;
+  color: #e12727;
+}
+
+.create-page .btn-deny:hover {
+  background: #fff;
+  box-shadow: none;
+}
+
+.create-page .btn-deny svg {
+  fill: #e12727;
+}
+
+@media (max-width: 980px) {
+  .create-page .container {
+    margin: 0;
+    padding: 16px;
+    gap: 20px;
+  }
+
+  .create-page .card-title {
+    padding: 16px 20px;
+  }
+
+  .create-page .card-content {
+    padding: 20px;
+  }
+
+  .create-page .two-col {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .create-page .details-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .create-page .actions {
+    flex-direction: column;
+  }
+
+  .create-page .btn-approve,
+  .create-page .btn-deny {
+    width: 100%;
+  }
 }

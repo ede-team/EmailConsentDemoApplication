@@ -1,94 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Permission Request for Application Creation</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0"
+    rel="stylesheet" />
   <link rel="stylesheet" href="../styles.css" />
 </head>
-<body>
+
+<body class="create-page">
 
   <!-- Header -->
-  <div class="page-header">
-    <div class="header-icon-circle">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
-      </svg>
-    </div>
-    <div class="header-text">
-      <h1>Permission Request for Application Creation</h1>
-      <p>Authorization required to create health insurance application on your behalf</p>
-    </div>
-  </div>
-
-  <!-- Content -->
   <div class="container">
+    <div class="page-header">
+      <div class="header-icon-circle">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z" />
+        </svg>
+      </div>
+      <div class="header-text">
+        <h1>Permission Request for Application Creation</h1>
+        <p>Authorization required to create health insurance application on your behalf</p>
+      </div>
+    </div>
 
+    <!-- Content -->
     <!-- Consent & Permission Management -->
-    <div class="card">
+    <div class="card card-split">
       <div class="card-title">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+          <path
+            d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z" />
         </svg>
         <h2>Consent &amp; Permission Management</h2>
       </div>
-      <p class="consent-text">
-        <span class="client">Health Sherpa</span> is requesting permission to create a health insurance application on your behalf for coverage year <span class="year" id="coverageYear">—</span>. By granting this permission, you authorize HealthSherpa to create the application, including personal, household and income information.
-      </p>
+      <div class="card-content">
+        <p class="consent-text">
+          <span class="client">Leon Foster</span> is requesting permission to create a health insurance application on
+          your behalf for coverage year <span class="year" id="coverageYear">—</span>. By granting this permission, you
+          authorize HealthSherpa to create the application, including personal, household and income information.
+        </p>
+      </div>
     </div>
 
     <!-- Two-column -->
     <div class="two-col">
 
       <!-- Application Details -->
-      <div class="card">
+      <div class="card card-split">
         <div class="card-title">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+            <path
+              d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
           </svg>
           <h2>Application Details</h2>
         </div>
-        <div class="details-grid">
-          <div class="detail-item">
-            <span class="detail-label">WEB BROKER</span>
-            <span class="detail-value">HealthSherpa</span>
-          </div>
-          <div class="detail-item">
-            <span class="detail-label">COVERAGE YEAR</span>
-            <span class="detail-value" id="coverageYearDetail">—</span>
-          </div>
-          <div class="detail-item">
-            <span class="detail-label">REQUEST DATE</span>
-            <span class="detail-value" id="requestDate">—</span>
+        <div class="card-content">
+          <div class="details-grid">
+            <div class="detail-item">
+              <span class="detail-label">WEB BROKER</span>
+              <span class="detail-value">HealthSherpa</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">COVERAGE YEAR</span>
+              <span class="detail-value" id="coverageYearDetail">—</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">REQUEST DATE</span>
+              <span class="detail-value" id="requestDate">—</span>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Authorization Notice -->
-      <div class="card">
+      <div class="card card-split">
         <div class="card-title">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
           </svg>
           <h2>Authorization Notice</h2>
         </div>
-        <div class="notice-box">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
-          </svg>
-          <div>
-            <h3>Important Authorization</h3>
-            <p>By granting permission, you authorize the user to create your health insurance application. You can revoke this permission by clicking the "Deny" button below.</p>
+        <div class="card-content">
+          <div class="notice-box">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" />
+              <path d="M5.9 6.1v4.2H12V3.2L5.9 6.1zM12 10.9v9.74c3.58-1.65 6.1-5.69 6.1-9.64v-.1H12z" fill="#fff" />
+            </svg>
+            <div>
+              <h3>Important Authorization</h3>
+              <p>By granting permission, you authorize the user to create your health insurance application. You can
+                revoke this permission by clicking the "Deny" button below.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -98,11 +109,16 @@
     <!-- Action buttons -->
     <div class="actions">
       <button class="btn-approve" onclick="handleAction('approve')">
-        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+        <svg viewBox="0 0 24 24">
+          <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" />
+        </svg>
         Approve
       </button>
       <button class="btn-deny" onclick="handleAction('deny')">
-        <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" />
+        </svg>
         Deny
       </button>
     </div>
@@ -110,9 +126,8 @@
   </div>
 
   <script>
-    const today = new Date();
-    const coverageYear = today.getFullYear() + 1;
-    const dateStr = today.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+    const coverageYear = 2026;
+    const dateStr = 'June 26, 2026';
 
     document.getElementById('coverageYear').textContent = coverageYear;
     document.getElementById('coverageYearDetail').textContent = coverageYear;
@@ -136,4 +151,5 @@
   </script>
 
 </body>
+
 </html>

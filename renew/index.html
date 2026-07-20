@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Renewal Application Ready</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+
+<body class="renew-page">
+
+  <div class="container">
+
+    <!-- Header -->
+    <div class="page-header">
+      <div class="header-icon-circle">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path
+            d="M17.65 6.35A7.958 7.958 0 0 0 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0 1 12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
+        </svg>
+      </div>
+      <div class="header-text">
+        <span class="renew-eyebrow">
+          <span class="material-symbols-rounded" aria-hidden="true">event_repeat</span>
+          Renewal Period
+        </span>
+        <h1>Renewal Application Ready</h1>
+        <p>Review your renewal for coverage year <span id="headerYear">&mdash;</span></p>
+      </div>
+    </div>
+
+    <!-- Loading state -->
+    <div class="card" id="loadingState" role="status" aria-live="polite">
+      <div class="state-panel">
+        <div class="spinner" aria-hidden="true"></div>
+        <h2>Loading your renewal application</h2>
+        <p>Please wait while we retrieve your renewal details for the upcoming coverage year.</p>
+      </div>
+    </div>
+
+    <!-- Error state -->
+    <div class="card hidden" id="errorState" role="alert">
+      <div class="state-panel">
+        <div class="state-icon state-icon--error" aria-hidden="true">
+          <span class="material-symbols-rounded">error</span>
+        </div>
+        <h2>Renewal details unavailable</h2>
+        <p>We couldn&rsquo;t load your renewal application right now. Please try again in a few minutes, or open the
+          portal to complete your renewal.</p>
+        <div class="renew-actions">
+          <button type="button" class="btn-approve" onclick="loadRenewal()">
+            <span class="material-symbols-rounded" aria-hidden="true">refresh</span>
+            Try Again
+          </button>
+          <a class="btn-deny" href="#" id="errorPortalLink" role="button">
+            <span class="material-symbols-rounded" aria-hidden="true">open_in_new</span>
+            Open Portal
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Empty state -->
+    <div class="card hidden" id="emptyState">
+      <div class="state-panel">
+        <div class="state-icon" aria-hidden="true">
+          <span class="material-symbols-rounded">folder_off</span>
+        </div>
+        <h2>No renewal application found</h2>
+        <p>There isn&rsquo;t a renewal application linked to this request. If you believe this is a mistake, please open
+          the portal or contact support for help.</p>
+        <div class="renew-actions">
+          <a class="btn-approve" href="#" id="emptyPortalLink" role="button">
+            <span class="material-symbols-rounded" aria-hidden="true">open_in_new</span>
+            Go to Portal
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Success state -->
+    <div class="card hidden" id="successState" role="status" aria-live="polite" tabindex="-1">
+      <div class="state-panel">
+        <div class="state-icon state-icon--success" aria-hidden="true">
+          <span class="material-symbols-rounded">check_circle</span>
+        </div>
+        <h2>Renewal confirmed</h2>
+        <p>Your renewal application <strong id="successAppId"></strong> has been submitted for coverage year
+          <strong id="successYear"></strong> with your current details. A confirmation will be sent to your email. You
+          may now close this window.</p>
+      </div>
+    </div>
+
+    <!-- Main content -->
+    <div id="renewalContent" class="hidden">
+
+      <div class="container" style="max-width:none;margin:0;padding:0;">
+
+        <!-- Intro message -->
+        <div class="card card-split renew-intro">
+          <div class="card-title">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
+            </svg>
+            <h2>Your renewal is ready</h2>
+          </div>
+          <div class="card-content">
+            <p>
+              Hello <span class="name" id="introName">&mdash;</span>, your application is now available for renewal for
+              the upcoming coverage period. Please review the details below, including covered members, eligibility
+              status, and the selected insurance plan for the next plan year. You can either confirm the renewal as-is
+              or make changes before continuing.
+            </p>
+          </div>
+        </div>
+
+        <!-- Renewal details -->
+        <div class="card card-split">
+          <div class="card-title">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path
+                d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
+            </svg>
+            <h2>Renewal Application Details</h2>
+          </div>
+          <div class="card-content">
+            <div class="details-grid">
+              <div class="detail-item">
+                <span class="detail-label">Application ID</span>
+                <span class="detail-value" id="detailAppId">&mdash;</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Applicant Name</span>
+                <span class="detail-value" id="detailApplicant">&mdash;</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Renewal Period</span>
+                <span class="detail-value" id="detailPeriod">&mdash;</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Coverage / Plan Year</span>
+                <span class="detail-value" id="detailYear">&mdash;</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Eligible members -->
+        <div class="card card-split">
+          <div class="card-title">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path
+                d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
+            </svg>
+            <h2>Eligible Members</h2>
+          </div>
+          <div class="card-content">
+            <div class="member-list" id="memberList"></div>
+          </div>
+        </div>
+
+        <!-- Selected plan -->
+        <div class="card card-split">
+          <div class="card-title">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" />
+            </svg>
+            <h2>Selected Plan for Next Year</h2>
+          </div>
+          <div class="card-content">
+            <div class="plan-card">
+              <div class="plan-icon" aria-hidden="true">
+                <span class="material-symbols-rounded">health_and_safety</span>
+              </div>
+              <div class="plan-info">
+                <div class="plan-name" id="planName">&mdash;</div>
+                <div class="plan-meta" id="planMeta">&mdash;</div>
+              </div>
+              <div class="plan-premium">
+                <strong id="planPremium">&mdash;</strong>
+                <span>Est. monthly</span>
+              </div>
+            </div>
+
+            <p class="channel-note" style="margin-top:16px;">
+              <span class="material-symbols-rounded" aria-hidden="true">mail</span>
+              <span>You can renew here through the portal, or reply to your renewal email if you prefer to renew by
+                email. Either channel completes your renewal for the next plan year.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="renew-actions" role="group" aria-label="Renewal actions">
+          <button type="button" class="btn-approve" id="confirmBtn" onclick="confirmRenewal()">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" />
+            </svg>
+            Confirm Renewal
+          </button>
+          <a class="btn-deny" href="#" id="makeChangesBtn" role="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
+            </svg>
+            Make Changes
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // Where the application portal lives. Overridable via ?portal=... in the link.
+    const PORTAL_URL = '../';
+
+    // Sample renewal payload. In production this comes from the renewal API,
+    // keyed off a token in the email link (e.g. ?token=...).
+    const SAMPLE_RENEWAL = {
+      applicationId: 'APP-10001',
+      applicantName: 'John Doe',
+      coverageYear: new Date().getFullYear() + 1,
+      members: [
+        { name: 'John Doe', relation: 'Primary applicant', eligibility: 'eligible' },
+        { name: 'Jessica Davis', relation: 'Spouse', eligibility: 'eligible' },
+        { name: 'Ryan Davis', relation: 'Dependent', eligibility: 'eligible' },
+        { name: 'Emma Davis', relation: 'Dependent', eligibility: 'ineligible' }
+      ],
+      plan: {
+        name: 'UnitedHealthcare \u2014 Silver Standard',
+        metal: 'Silver',
+        premium: '$159.47'
+      }
+    };
+
+    const els = {
+      loading: document.getElementById('loadingState'),
+      error: document.getElementById('errorState'),
+      empty: document.getElementById('emptyState'),
+      success: document.getElementById('successState'),
+      content: document.getElementById('renewalContent')
+    };
+
+    function showOnly(key) {
+      Object.entries(els).forEach(([name, el]) => {
+        el.classList.toggle('hidden', name !== key);
+      });
+    }
+
+    const BADGES = {
+      eligible: { cls: 'badge--eligible', icon: 'check_circle', label: 'Eligible' },
+      ineligible: { cls: 'badge--ineligible', icon: 'cancel', label: 'Ineligible' },
+      pending: { cls: 'badge--pending', icon: 'schedule', label: 'Pending' }
+    };
+
+    function initials(name) {
+      return name.split(' ').map(p => p[0]).slice(0, 2).join('').toUpperCase();
+    }
+
+    function renderRenewal(data) {
+      const year = data.coverageYear;
+      document.getElementById('headerYear').textContent = year;
+      document.getElementById('introName').textContent = data.applicantName;
+      document.getElementById('detailAppId').textContent = data.applicationId;
+      document.getElementById('detailApplicant').textContent = data.applicantName;
+      document.getElementById('detailPeriod').textContent = 'Jan 1 \u2013 Dec 31, ' + year;
+      document.getElementById('detailYear').textContent = year;
+
+      const list = document.getElementById('memberList');
+      list.innerHTML = '';
+      data.members.forEach(m => {
+        const badge = BADGES[m.eligibility] || BADGES.pending;
+        const row = document.createElement('div');
+        row.className = 'member-row';
+        row.innerHTML =
+          '<div class="member-identity">' +
+            '<span class="member-avatar" aria-hidden="true">' + initials(m.name) + '</span>' +
+            '<span>' +
+              '<span class="member-name">' + m.name + '</span><br>' +
+              '<span class="member-relation">' + m.relation + '</span>' +
+            '</span>' +
+          '</div>' +
+          '<span class="badge ' + badge.cls + '">' +
+            '<span class="material-symbols-rounded" aria-hidden="true">' + badge.icon + '</span>' +
+            badge.label +
+          '</span>';
+        list.appendChild(row);
+      });
+
+      document.getElementById('planName').textContent = data.plan.name;
+      document.getElementById('planMeta').textContent = data.plan.metal + ' plan \u00b7 Coverage year ' + year;
+      document.getElementById('planPremium').textContent = data.plan.premium;
+
+      renderRenewal.current = data;
+      showOnly('content');
+    }
+
+    function confirmRenewal() {
+      const data = renderRenewal.current;
+      const btn = document.getElementById('confirmBtn');
+      btn.disabled = true;
+      btn.style.opacity = '0.7';
+      // Simulate the renewal confirmation request.
+      setTimeout(() => {
+        document.getElementById('successAppId').textContent = data.applicationId;
+        document.getElementById('successYear').textContent = data.coverageYear;
+        showOnly('success');
+        const s = document.getElementById('successState');
+        if (s.focus) s.focus();
+      }, 700);
+    }
+
+    function loadRenewal() {
+      showOnly('loading');
+      const params = new URLSearchParams(location.search);
+      const forced = params.get('state'); // demo helper: ?state=error|empty|loading
+      const portal = params.get('portal') || PORTAL_URL;
+
+      document.getElementById('makeChangesBtn').setAttribute('href', portal);
+      document.getElementById('errorPortalLink').setAttribute('href', portal);
+      document.getElementById('emptyPortalLink').setAttribute('href', portal);
+
+      setTimeout(() => {
+        if (forced === 'error') return showOnly('error');
+        if (forced === 'empty') return showOnly('empty');
+        if (forced === 'loading') return; // stay loading for demo
+        renderRenewal(SAMPLE_RENEWAL);
+      }, 900);
+    }
+
+    loadRenewal();
+  </script>
+
+</body>
+
+</html>

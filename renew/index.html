@@ -119,69 +119,74 @@
         </div>
       </div>
 
-      <!-- Renewal details -->
-      <div class="card card-split">
-        <div class="card-title">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path
-              d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
-          </svg>
-          <h2>Renewal Application Details</h2>
-        </div>
-        <div class="card-content">
-          <div class="details-grid">
-            <div class="detail-item">
-              <span class="detail-label">Application ID</span>
-              <span class="detail-value" id="detailAppId">&mdash;</span>
-            </div>
-            <div class="detail-item">
-              <span class="detail-label">Applicant Name</span>
-              <span class="detail-value" id="detailApplicant">&mdash;</span>
-            </div>
-            <div class="detail-item">
-              <span class="detail-label">Renewal Period</span>
-              <span class="detail-value" id="detailPeriod">&mdash;</span>
-            </div>
-            <div class="detail-item">
-              <span class="detail-label">Coverage / Plan Year</span>
-              <span class="detail-value" id="detailYear">&mdash;</span>
+      <!-- Two-column: details + plan/coverage -->
+      <div class="two-col">
+
+        <!-- Renewal details -->
+        <div class="card card-split">
+          <div class="card-title">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path
+                d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
+            </svg>
+            <h2>Renewal Application Details</h2>
+          </div>
+          <div class="card-content">
+            <div class="details-grid">
+              <div class="detail-item">
+                <span class="detail-label">Application ID</span>
+                <span class="detail-value" id="detailAppId">&mdash;</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Applicant Name</span>
+                <span class="detail-value" id="detailApplicant">&mdash;</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Renewal Period</span>
+                <span class="detail-value" id="detailPeriod">&mdash;</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Coverage / Plan Year</span>
+                <span class="detail-value" id="detailYear">&mdash;</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Plan, covered members & instructions -->
-      <div class="card card-split">
-        <div class="card-title">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" />
-          </svg>
-          <h2>Plan &amp; Coverage for Next Year</h2>
-        </div>
-        <div class="card-content">
-          <div class="plan-card">
-            <div class="plan-icon" aria-hidden="true">
-              <span class="material-symbols-rounded">health_and_safety</span>
-            </div>
-            <div class="plan-info">
-              <div class="plan-name" id="planName">&mdash;</div>
-              <div class="plan-meta" id="planMeta">&mdash;</div>
-            </div>
-            <div class="plan-premium">
-              <strong id="planPremium">&mdash;</strong>
-              <span>Est. monthly</span>
-            </div>
+        <!-- Plan, covered members & instructions -->
+        <div class="card card-split">
+          <div class="card-title">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" />
+            </svg>
+            <h2>Plan &amp; Coverage for Next Year</h2>
           </div>
+          <div class="card-content">
+            <div class="plan-card">
+              <div class="plan-icon" aria-hidden="true">
+                <span class="material-symbols-rounded">health_and_safety</span>
+              </div>
+              <div class="plan-info">
+                <div class="plan-name" id="planName">&mdash;</div>
+                <div class="plan-meta" id="planMeta">&mdash;</div>
+              </div>
+              <div class="plan-premium">
+                <strong id="planPremium">&mdash;</strong>
+                <span>Est. monthly</span>
+              </div>
+            </div>
 
-          <h3 class="subsection-title">Eligible Members</h3>
-          <div class="member-list" id="memberList"></div>
+            <h3 class="subsection-title">Eligible Members</h3>
+            <div class="member-chips" id="memberList"></div>
 
-          <p class="channel-note" style="margin-top:22px;">
-            <span class="material-symbols-rounded" aria-hidden="true">info</span>
-            <span>You can complete your renewal on this page. If you want to make changes to your application, click the
-              <strong>Make Changes</strong> button below, which will redirect you to the EDE portal.</span>
-          </p>
+            <p class="channel-note" style="margin-top:20px;">
+              <span class="material-symbols-rounded" aria-hidden="true">info</span>
+              <span>You can complete your renewal on this page. If you want to make changes to your application, click
+                the <strong>Make Changes</strong> button below, which will redirect you to the EDE portal.</span>
+            </p>
+          </div>
         </div>
+
       </div>
 
       <!-- Actions -->
@@ -262,21 +267,17 @@
       list.innerHTML = '';
       data.members.forEach(m => {
         const badge = BADGES[m.eligibility] || BADGES.pending;
-        const row = document.createElement('div');
-        row.className = 'member-row';
-        row.innerHTML =
-          '<div class="member-identity">' +
-            '<span class="member-avatar" aria-hidden="true">' + initials(m.name) + '</span>' +
-            '<span>' +
-              '<span class="member-name">' + m.name + '</span><br>' +
-              '<span class="member-relation">' + m.relation + '</span>' +
-            '</span>' +
-          '</div>' +
-          '<span class="badge ' + badge.cls + '">' +
+        const chip = document.createElement('span');
+        chip.className = 'member-chip';
+        chip.setAttribute('title', m.name + ' \u2014 ' + badge.label + ' (' + m.relation + ')');
+        chip.innerHTML =
+          '<span class="member-chip__avatar ' + badge.cls + '" aria-hidden="true">' + initials(m.name) + '</span>' +
+          '<span class="member-chip__name">' + m.name + '</span>' +
+          '<span class="member-chip__status ' + badge.cls + '">' +
             '<span class="material-symbols-rounded" aria-hidden="true">' + badge.icon + '</span>' +
             badge.label +
           '</span>';
-        list.appendChild(row);
+        list.appendChild(chip);
       });
 
       document.getElementById('planName').textContent = data.plan.name;

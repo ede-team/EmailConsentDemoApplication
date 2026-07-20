@@ -771,7 +771,61 @@ html:has(body.create-page) {
   margin-top: 24px;
   padding-top: 20px;
   border-top: 1px solid var(--color-line);
+  margin-bottom: 12px;
 }
+
+/* Compact member chips (fit inside a narrow column) */
+.member-chips {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.member-chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 10px;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-pill);
+  background: #fff;
+}
+
+.member-chip__avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-weight: 800;
+  font-size: 0.7rem;
+}
+
+.member-chip__name {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--color-text);
+  flex: 1 1 auto;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.member-chip__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: var(--radius-pill);
+  flex-shrink: 0;
+}
+
+.member-chip__status .material-symbols-rounded { font-size: 14px; }
 
 .member-row {
   display: flex;

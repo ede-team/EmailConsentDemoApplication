@@ -31,8 +31,8 @@
           <span class="material-symbols-rounded" aria-hidden="true">event_repeat</span>
           Renewal Period
         </span>
-        <h1>Renewal Application Ready</h1>
-        <p>Review your renewal for coverage year <span id="headerYear">&mdash;</span></p>
+        <h1>Application Is Ready for Renewal</h1>
+        <p>Review Your Renewal Application Details for Coverage Year <span id="headerYear">&mdash;</span></p>
       </div>
     </div>
 
@@ -107,13 +107,13 @@
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
           </svg>
-          <h2>Your renewal is ready</h2>
+          <h2>Your Renewal Application is Ready</h2>
         </div>
         <div class="card-content">
           <p class="consent-text">
             Hello <span class="name" id="introName">&mdash;</span>, your application is now available for renewal for
             the upcoming coverage period. Please review the details below, including covered members, eligibility
-            status, and the selected insurance plan for the next plan year. You can either confirm the renewal as-is or
+            status, and the selected insurance plan for the next plan year. You can either confirm the renewal as is or
             make changes before continuing.
           </p>
         </div>
@@ -175,11 +175,6 @@
                 <span>Est. monthly</span>
               </div>
             </div>
-            <p class="channel-note" style="margin-top:16px;">
-              <span class="material-symbols-rounded" aria-hidden="true">mail</span>
-              <span>You can renew here through the portal, or reply to your renewal email if you prefer to renew by
-                email. Either channel completes your renewal for the next plan year.</span>
-            </p>
           </div>
         </div>
 
@@ -199,8 +194,25 @@
         </div>
       </div>
 
+      <!-- Renewal instructions -->
+      <div class="card card-split">
+        <div class="card-title">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
+          </svg>
+          <h2>How to Complete Your Renewal</h2>
+        </div>
+        <div class="card-content">
+          <p class="channel-note">
+            <span class="material-symbols-rounded" aria-hidden="true">info</span>
+            <span>You can complete your renewal on this page. If you want to make changes to your application, click the
+              <strong>Make Changes</strong> button below, which will redirect you to the EDE portal.</span>
+          </p>
+        </div>
+      </div>
+
       <!-- Actions -->
-      <div class="actions renew-actions" role="group" aria-label="Renewal actions">
+      <div class="actions" role="group" aria-label="Renewal actions">
         <button type="button" class="btn-approve" id="confirmBtn" onclick="confirmRenewal()">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" />

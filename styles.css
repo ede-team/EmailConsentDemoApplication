@@ -759,8 +759,10 @@ html:has(body.create-page) {
 .member-list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-top: 8px;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 /* Subsection heading inside a card (e.g. Eligible Members) */
@@ -774,80 +776,19 @@ html:has(body.create-page) {
   margin-bottom: 12px;
 }
 
-/* Compact member chips (fit inside a narrow column) */
-.member-chips {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.member-chip {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 7px 10px;
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-pill);
-  background: #fff;
-}
-
-.member-chip__avatar {
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  font-weight: 800;
-  font-size: 0.7rem;
-}
-
-.member-chip__name {
-  font-weight: 700;
-  font-size: 0.9rem;
-  color: var(--color-text);
-  flex: 1 1 auto;
-  min-width: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.member-chip__status {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  padding: 3px 9px;
-  border-radius: var(--radius-pill);
-  flex-shrink: 0;
-}
-
-.member-chip__status .material-symbols-rounded { font-size: 14px; }
-
 .member-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-  padding: 14px 16px;
+  gap: 12px;
+  padding: 10px 14px;
   border: 1px solid var(--color-line);
   border-radius: var(--radius-sm);
   background: #fff;
 }
 
-.member-identity {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  min-width: 0;
-}
-
 .member-avatar {
-  width: 38px;
-  height: 38px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   background: var(--color-accent-soft);
   color: var(--color-primary);
@@ -856,17 +797,28 @@ html:has(body.create-page) {
   justify-content: center;
   flex-shrink: 0;
   font-weight: 800;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
+}
+
+.member-identity {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1 1 auto;
+  line-height: 1.3;
 }
 
 .member-name {
   font-weight: 700;
   color: var(--color-text);
-  font-size: 0.975rem;
+  font-size: 0.925rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .member-relation {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: var(--color-muted);
 }
 
@@ -874,15 +826,16 @@ html:has(body.create-page) {
 .badge {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  font-size: 0.8rem;
+  gap: 5px;
+  font-size: 0.78rem;
   font-weight: 700;
-  padding: 5px 12px;
+  padding: 4px 10px;
   border-radius: var(--radius-pill);
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
-.badge .material-symbols-rounded { font-size: 16px; }
+.badge .material-symbols-rounded { font-size: 15px; }
 
 .badge--eligible {
   color: #15803d;
@@ -981,6 +934,11 @@ html:has(body.create-page) {
 }
 
 /* Primary actions row */
+.renew-actions-row {
+  margin-top: 10px;
+  padding-top: 4px;
+}
+
 .renew-actions {
   display: flex;
   gap: 14px;

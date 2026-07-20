@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="../styles.css" />
 </head>
 
-<body class="renew-page">
+<body class="create-page renew-page">
 
   <div class="container">
 
@@ -59,10 +59,10 @@
             <span class="material-symbols-rounded" aria-hidden="true">refresh</span>
             Try Again
           </button>
-          <a class="btn-deny" href="#" id="errorPortalLink" role="button">
+          <button type="button" class="btn-deny" onclick="goToPortal()">
             <span class="material-symbols-rounded" aria-hidden="true">open_in_new</span>
             Open Portal
-          </a>
+          </button>
         </div>
       </div>
     </div>
@@ -77,10 +77,10 @@
         <p>There isn&rsquo;t a renewal application linked to this request. If you believe this is a mistake, please open
           the portal or contact support for help.</p>
         <div class="renew-actions">
-          <a class="btn-approve" href="#" id="emptyPortalLink" role="button">
+          <button type="button" class="btn-approve" onclick="goToPortal()">
             <span class="material-symbols-rounded" aria-hidden="true">open_in_new</span>
             Go to Portal
-          </a>
+          </button>
         </div>
       </div>
     </div>
@@ -101,25 +101,26 @@
     <!-- Main content -->
     <div id="renewalContent" class="hidden">
 
-      <div class="container" style="max-width:none;margin:0;padding:0;">
-
-        <!-- Intro message -->
-        <div class="card card-split renew-intro">
-          <div class="card-title">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
-            </svg>
-            <h2>Your renewal is ready</h2>
-          </div>
-          <div class="card-content">
-            <p>
-              Hello <span class="name" id="introName">&mdash;</span>, your application is now available for renewal for
-              the upcoming coverage period. Please review the details below, including covered members, eligibility
-              status, and the selected insurance plan for the next plan year. You can either confirm the renewal as-is
-              or make changes before continuing.
-            </p>
-          </div>
+      <!-- Intro message -->
+      <div class="card card-split renew-intro">
+        <div class="card-title">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
+          </svg>
+          <h2>Your renewal is ready</h2>
         </div>
+        <div class="card-content">
+          <p class="consent-text">
+            Hello <span class="name" id="introName">&mdash;</span>, your application is now available for renewal for
+            the upcoming coverage period. Please review the details below, including covered members, eligibility
+            status, and the selected insurance plan for the next plan year. You can either confirm the renewal as-is or
+            make changes before continuing.
+          </p>
+        </div>
+      </div>
+
+      <!-- Two-column: details + plan -->
+      <div class="two-col">
 
         <!-- Renewal details -->
         <div class="card card-split">
@@ -152,20 +153,6 @@
           </div>
         </div>
 
-        <!-- Eligible members -->
-        <div class="card card-split">
-          <div class="card-title">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path
-                d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
-            </svg>
-            <h2>Eligible Members</h2>
-          </div>
-          <div class="card-content">
-            <div class="member-list" id="memberList"></div>
-          </div>
-        </div>
-
         <!-- Selected plan -->
         <div class="card card-split">
           <div class="card-title">
@@ -188,7 +175,6 @@
                 <span>Est. monthly</span>
               </div>
             </div>
-
             <p class="channel-note" style="margin-top:16px;">
               <span class="material-symbols-rounded" aria-hidden="true">mail</span>
               <span>You can renew here through the portal, or reply to your renewal email if you prefer to renew by
@@ -197,32 +183,44 @@
           </div>
         </div>
 
-        <!-- Actions -->
-        <div class="renew-actions" role="group" aria-label="Renewal actions">
-          <button type="button" class="btn-approve" id="confirmBtn" onclick="confirmRenewal()">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" />
-            </svg>
-            Confirm Renewal
-          </button>
-          <a class="btn-deny" href="#" id="makeChangesBtn" role="button">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path
-                d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
-            </svg>
-            Make Changes
-          </a>
-        </div>
-
       </div>
+
+      <!-- Eligible members -->
+      <div class="card card-split">
+        <div class="card-title">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path
+              d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
+          </svg>
+          <h2>Eligible Members</h2>
+        </div>
+        <div class="card-content">
+          <div class="member-list" id="memberList"></div>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="actions renew-actions" role="group" aria-label="Renewal actions">
+        <button type="button" class="btn-approve" id="confirmBtn" onclick="confirmRenewal()">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" />
+          </svg>
+          Confirm Renewal
+        </button>
+        <button type="button" class="btn-deny" id="makeChangesBtn" onclick="goToPortal()">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
+          </svg>
+          Make Changes
+        </button>
+      </div>
+
     </div>
 
   </div>
 
   <script>
-    // Where the application portal lives. Overridable via ?portal=... in the link.
-    const PORTAL_URL = '../';
-
     // Sample renewal payload. In production this comes from the renewal API,
     // keyed off a token in the email link (e.g. ?token=...).
     const SAMPLE_RENEWAL = {
@@ -319,15 +317,24 @@
       }, 700);
     }
 
+    // "Make Changes" / portal actions show a redirect message instead of navigating.
+    function goToPortal() {
+      document.body.innerHTML =
+        '<div style="min-height:100vh;display:flex;align-items:center;justify-content:center;background:#eef0f3;font-family:inherit;padding:24px;">' +
+          '<div style="background:#fff;border-radius:22px;padding:48px 40px;max-width:480px;width:100%;text-align:center;box-shadow:0 12px 32px rgba(126,20,20,0.10);border:1px solid #e6e6e6;">' +
+            '<div style="width:72px;height:72px;border-radius:50%;background:#f6dcd2;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;">' +
+              '<span class="material-symbols-rounded" style="font-size:36px;color:#7e1414;">open_in_new</span>' +
+            '</div>' +
+            '<h2 style="margin:0 0 12px;color:#1a1a1a;font-size:1.5rem;font-weight:800;letter-spacing:-0.01em;">Redirected to EDE Portal</h2>' +
+            '<p style="color:#4a4a4a;font-size:1rem;line-height:1.65;margin:0;">You are being redirected to the EDE portal to update your renewal application.</p>' +
+          '</div>' +
+        '</div>';
+    }
+
     function loadRenewal() {
       showOnly('loading');
       const params = new URLSearchParams(location.search);
       const forced = params.get('state'); // demo helper: ?state=error|empty|loading
-      const portal = params.get('portal') || PORTAL_URL;
-
-      document.getElementById('makeChangesBtn').setAttribute('href', portal);
-      document.getElementById('errorPortalLink').setAttribute('href', portal);
-      document.getElementById('emptyPortalLink').setAttribute('href', portal);
 
       setTimeout(() => {
         if (forced === 'error') return showOnly('error');

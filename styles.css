@@ -763,6 +763,16 @@ html:has(body.create-page) {
   margin-top: 8px;
 }
 
+/* Subsection heading inside a card (e.g. Eligible Members) */
+.subsection-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-line);
+}
+
 .member-row {
   display: flex;
   align-items: center;

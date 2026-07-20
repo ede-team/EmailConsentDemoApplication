@@ -755,10 +755,18 @@ html:has(body.create-page) {
 
 .renew-intro .card-content p .name { color: var(--color-primary); font-weight: 700; }
 
-/* Members list */
-.member-list {
+/* Content wrapper mirrors the container spacing so the
+   intro card, two-column row, and actions are evenly spaced. */
+.create-page #renewalContent {
   display: flex;
   flex-direction: column;
+  gap: 34px;
+}
+
+/* Members list */
+.member-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
   margin: 0;
   padding: 0;
@@ -779,8 +787,8 @@ html:has(body.create-page) {
 .member-row {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 10px 14px;
+  gap: 10px;
+  padding: 10px 12px;
   border: 1px solid var(--color-line);
   border-radius: var(--radius-sm);
   background: #fff;
@@ -1022,6 +1030,7 @@ html:has(body.create-page) {
   .renew-actions .btn-approve,
   .renew-actions .btn-deny { width: 100%; }
 
+  .member-list { grid-template-columns: 1fr; }
   .member-row { flex-wrap: wrap; }
 
   .plan-card { flex-wrap: wrap; }

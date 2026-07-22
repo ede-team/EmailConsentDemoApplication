@@ -804,7 +804,7 @@ html:has(body.create-page) {
 .renew-page .card-title svg {
   width: 18px;
   height: 18px;
-  fill: #6b7280;
+  fill: var(--color-primary);
 }
 
 .renew-page .card-title h2 {
@@ -833,7 +833,7 @@ html:has(body.create-page) {
   color: var(--color-text-soft);
 }
 
-.renew-intro .card-content p .name { color: var(--color-primary); font-weight: 700; }
+.renew-intro .card-content p .name { color: var(--color-text); font-weight: 700; }
 
 /* Content wrapper mirrors the container spacing so the
    intro card, two-column row, and actions are evenly spaced. */
@@ -935,17 +935,17 @@ html:has(body.create-page) {
 .badge .material-symbols-rounded { font-size: 15px; }
 
 .badge--eligible {
-  color: #15803d;
+  color: var(--color-primary);
   background: #dcfce7;
 }
 
 .badge--ineligible {
-  color: var(--color-danger);
+  color: var(--color-primary);
   background: #fee2e2;
 }
 
 .badge--pending {
-  color: #92400e;
+  color: var(--color-primary);
   background: #fef3c7;
 }
 

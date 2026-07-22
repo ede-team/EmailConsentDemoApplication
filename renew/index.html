@@ -214,19 +214,18 @@
     // Sample renewal payload. In production this comes from the renewal API,
     // keyed off a token in the email link (e.g. ?token=...).
     const SAMPLE_RENEWAL = {
-      applicationId: 'APP-10001',
-      applicantName: 'John Doe',
-      coverageYear: new Date().getFullYear() + 1,
+      applicationId: '1001',
+      applicantName: 'Jessica Davis',
+      coverageYear: 2026,
       members: [
-        { name: 'John Doe', relation: 'Primary applicant', eligibility: 'eligible' },
-        { name: 'Jessica Davis', relation: 'Spouse', eligibility: 'eligible' },
-        { name: 'Ryan Davis', relation: 'Dependent', eligibility: 'eligible' },
+        { name: 'Jessica Davis', relation: 'Primary applicant', eligibility: 'eligible' },
+        { name: 'Ryan Davis', relation: 'Spouse', eligibility: 'eligible' },
         { name: 'Emma Davis', relation: 'Dependent', eligibility: 'ineligible' }
       ],
       plan: {
-        name: 'UnitedHealthcare \u2014 Silver Standard',
-        metal: 'Silver',
-        premium: '$159.47'
+        name: 'UnitedHealthcare — UHC Bronze Essential (No Referrals)',
+        metal: 'UHC Bronze Essential (No Referrals)',
+        premium: '$1,012.45'
       }
     };
 
@@ -266,9 +265,10 @@
       const list = document.getElementById('memberList');
       list.innerHTML = '';
       data.members.forEach(m => {
-        const badge = BADGES[m.eligibility] || BADGES.pending;
+        const status = BADGES[m.eligibility] ? m.eligibility : 'pending';
+        const badge = BADGES[status];
         const row = document.createElement('li');
-        row.className = 'member-row';
+        row.className = 'member-row member-row--' + status;
         row.innerHTML =
           '<span class="member-avatar" aria-hidden="true">' + initials(m.name) + '</span>' +
           '<span class="member-identity">' +

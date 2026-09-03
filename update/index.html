@@ -45,9 +45,9 @@
       </div>
       <div class="card-content">
         <p class="consent-text">
-          <span class="client">Health Sherpa</span> is requesting permission to manage a health insurance application on
+          <span class="client">Sooner Sisters</span> is requesting permission to manage a health insurance application on
           your behalf for coverage year <span class="year" id="coverageYear">—</span>. By granting this permission, you
-          authorize HealthSherpa to modify and save changes to your existing application, including personal, household
+          authorize Sooner Sisters to modify and save changes to your existing application, including personal, household
           and income information updates.
         </p>
       </div>
@@ -69,7 +69,7 @@
           <div class="details-grid">
             <div class="detail-item">
               <span class="detail-label">WEB BROKER</span>
-              <span class="detail-value">HealthSherpa</span>
+              <span class="detail-value">Sooner Sisters</span>
             </div>
             <div class="detail-item">
               <span class="detail-label">COVERAGE YEAR</span>
@@ -129,9 +129,8 @@
   </div>
 
   <script>
-    const today = new Date();
-    const coverageYear = today.getFullYear() + 1;
-    const dateStr = today.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+    const coverageYear = 2028;
+    const dateStr = 'June 26, 2027';
 
     document.getElementById('coverageYear').textContent = coverageYear;
     document.getElementById('coverageYearDetail').textContent = coverageYear;

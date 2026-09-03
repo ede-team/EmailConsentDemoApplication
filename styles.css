@@ -5,27 +5,27 @@
    ========================================================= */
 
 :root {
-  --color-bg: #ffffff;
+  --color-bg: #f5f9ff;
   --color-surface: #ffffff;
-  --color-text: #1a1a1a;
-  --color-text-soft: #4a4a4a;
-  --color-muted: #767676;
-  --color-line: #e6e6e6;
+  --color-text: #0f172a;
+  --color-text-soft: #425466;
+  --color-muted: #64748b;
+  --color-line: #dfeaf6;
 
-  --color-primary: #7e1414;
-  --color-primary-hover: #5f0f0f;
-  --color-primary-dark: #4d0c0c;
-  --color-accent: #d63d1a;
-  --color-accent-soft: #f6dcd2;
-  --color-accent-peach: #e8b894;
+  --color-primary: #0b6bb8;
+  --color-primary-hover: #08599a;
+  --color-primary-dark: #0a4b7a;
+  --color-accent: #1d8fe8;
+  --color-accent-soft: #eaf5ff;
+  --color-accent-peach: #bfdcff;
 
-  --color-notice-bg: #fff5ef;
-  --color-notice-border: #e8b894;
-  --color-notice-text: #6b2a10;
-  --color-notice-title: #7e1414;
+  --color-notice-bg: #edf7ff;
+  --color-notice-border: #c5ddff;
+  --color-notice-text: #244669;
+  --color-notice-title: #0b6bb8;
 
-  --color-danger: #b91c1c;
-  --color-danger-hover: #fef2f2;
+  --color-danger: #d93025;
+  --color-danger-hover: #fff5f5;
 
   --radius-sm: 10px;
   --radius: 16px;
@@ -65,8 +65,8 @@ html, body {
    ========================================================= */
 .index-page {
   background:
-    radial-gradient(1100px 600px at 85% -10%, rgba(214, 61, 26, 0.10), transparent 60%),
-    radial-gradient(900px 500px at -10% 110%, rgba(126, 20, 20, 0.10), transparent 60%),
+    radial-gradient(1100px 600px at 85% -10%, rgba(11, 107, 184, 0.12), transparent 60%),
+    radial-gradient(900px 500px at -10% 110%, rgba(29, 143, 232, 0.12), transparent 60%),
     var(--color-bg);
   min-height: 100vh;
   display: flex;
@@ -396,12 +396,12 @@ html, body {
 
 .btn-deny {
   background: #fff;
-  color: var(--color-danger);
-  border-color: var(--color-danger);
+  color: var(--color-primary);
+  border-color: var(--color-primary);
 }
 
 .btn-deny:hover {
-  background: var(--color-danger-hover);
+  background: #f3f9ff;
   transform: translateY(-1px);
 }
 
@@ -412,7 +412,7 @@ html, body {
 }
 
 .btn-approve svg { fill: #fff; }
-.btn-deny svg   { fill: var(--color-danger); }
+.btn-deny svg   { fill: var(--color-primary); }
 
 /* =========================================================
    Modal (kept for parity; not currently used)
@@ -505,11 +505,11 @@ html, body {
    Create page screenshot alignment
    ========================================================= */
 .create-page {
-  background: #eef0f3;
+  background: #edf4fb;
 }
 
 html:has(body.create-page) {
-  background: #eef0f3;
+  background: #edf4fb;
 }
 
 .create-page .container {
@@ -520,36 +520,36 @@ html:has(body.create-page) {
 }
 
 .create-page .page-header {
-  background: #f6f7f9;
-  border: 1px solid #d4d7dc;
+  background: #ffffff;
+  border: 1px solid #d8e6f7;
   border-radius: 14px;
-  box-shadow: 0 2px 10px rgba(22, 26, 34, 0.08);
+  box-shadow: 0 2px 10px rgba(11, 107, 184, 0.08);
   padding: 18px 28px;
 }
 
 .create-page .header-icon-circle {
   width: 62px;
   height: 62px;
-  background: #eceff3;
-  border: 1px solid #dbe0e7;
+  background: #eaf5ff;
+  border: 1px solid #d5eaff;
 }
 
 .create-page .header-icon-circle svg {
-  fill: #8a0d12;
+  fill: var(--color-primary);
 }
 
 .create-page .header-text h1 {
-  color: #0f2748;
+  color: #0d2f57;
 }
 
 .create-page .header-text p {
   margin-top: 2px;
-  color: #51627b;
+  color: #48617d;
 }
 
 .create-page .card {
-  border: 1px solid #c7ccd3;
-  background: #f5f6f8;
+  border: 1px solid #d8e6f7;
+  background: #ffffff;
   box-shadow: none;
   border-radius: 14px;
   padding: 0;
@@ -558,19 +558,19 @@ html:has(body.create-page) {
 .create-page .card-title {
   margin: 0;
   padding: 18px 34px;
-  background: #eceef1;
-  border-bottom: 1px solid #d2d7de;
+  background: #f3f9ff;
+  border-bottom: 1px solid #dceaf8;
 }
 
 .create-page .card-title h2 {
   font-weight: 700;
-  color: #112b4e;
+  color: #0d2f57;
 }
 
 .create-page .card-title svg {
   width: 30px;
   height: 30px;
-  fill: #8a0d12;
+  fill: var(--color-primary);
 }
 
 .create-page .card-content {
@@ -584,7 +584,7 @@ html:has(body.create-page) {
 
 .create-page .consent-text .client,
 .create-page .consent-text .year {
-  color: #020b1c;
+  color: var(--color-primary);
 }
 
 .create-page .two-col {
@@ -612,16 +612,16 @@ html:has(body.create-page) {
 
 .create-page .notice-box {
   margin-top: 4px;
-  border: 1px solid #e4bf51;
-  border-left: 1px solid #e4bf51;
-  background: #f7efc9;
+  border: 1px solid #cfe4ff;
+  border-left: 4px solid var(--color-primary);
+  background: #edf7ff;
   border-radius: 14px;
   padding: 24px;
   gap: 16px;
 }
 
 .create-page .notice-box svg {
-  fill: #ec9f0f;
+  fill: var(--color-primary);
   width: 36px;
   height: 36px;
   margin-top: 0;
@@ -629,12 +629,12 @@ html:has(body.create-page) {
 
 .create-page .notice-box h3 {
   font-weight: 700;
-  color: #152646;
+  color: #0d2f57;
   margin-bottom: 6px;
 }
 
 .create-page .notice-box p {
-  color: #132745;
+  color: #244669;
   line-height: 1.5;
 }
 
@@ -649,13 +649,13 @@ html:has(body.create-page) {
 }
 
 .create-page .btn-approve {
-  background: #8f090d;
-  border-color: #8f090d;
+  background: var(--color-primary);
+  border-color: var(--color-primary);
 }
 
 .create-page .btn-approve:hover {
-  background: #74070a;
-  border-color: #74070a;
+  background: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
   box-shadow: none;
 }
 
@@ -668,23 +668,23 @@ html:has(body.create-page) {
 .create-page .btn-approve svg {
   background: #fff;
   border-radius: 50%;
-  fill: #8f090d;
+  fill: var(--color-primary);
   padding: 2px;
 }
 
 .create-page .btn-deny {
-  background: #f5f6f8;
-  border-color: #e12727;
-  color: #e12727;
+  background: #ffffff;
+  border-color: var(--color-primary);
+  color: var(--color-primary);
 }
 
 .create-page .btn-deny:hover {
-  background: #fff;
+  background: #f3f9ff;
   box-shadow: none;
 }
 
 .create-page .btn-deny svg {
-  fill: #e12727;
+  fill: var(--color-primary);
 }
 
 @media (max-width: 980px) {
@@ -757,8 +757,8 @@ html:has(body.create-page) {
 
 .renew-page .page-header {
   background: #fff;
-  border: 1px solid #e6e9ef;
-  box-shadow: 0 6px 20px rgba(12, 20, 33, 0.05);
+  border: 1px solid #d8e6f7;
+  box-shadow: 0 6px 20px rgba(11, 107, 184, 0.06);
   border-radius: 14px;
   padding: 24px 28px;
 }
@@ -766,14 +766,14 @@ html:has(body.create-page) {
 .renew-page .header-icon-circle {
   width: 56px;
   height: 56px;
-  background: #fce8dd;
-  border: 0;
+  background: #eaf5ff;
+  border: 1px solid #d6ebff;
 }
 
 .renew-page .header-icon-circle svg {
   width: 28px;
   height: 28px;
-  fill: #a0221b;
+  fill: var(--color-primary);
 }
 
 .renew-page .header-text h1 {
@@ -788,8 +788,8 @@ html:has(body.create-page) {
 
 .renew-page .card {
   background: #fff;
-  border: 1px solid #e6e9ef;
-  box-shadow: 0 6px 20px rgba(12, 20, 33, 0.05);
+  border: 1px solid #d8e6f7;
+  box-shadow: 0 6px 20px rgba(11, 107, 184, 0.06);
   border-radius: 14px;
   padding: 0;
 }
